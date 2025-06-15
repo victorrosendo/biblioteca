@@ -1,5 +1,4 @@
 package biblioteca.salas.duoc.model;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,8 +12,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "estudiante")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Estudiante {
     @Id
     private Long id;
@@ -27,11 +26,10 @@ public class Estudiante {
     @Column(nullable = false)
     private char jornada;
     @Column(nullable = false)
-    private Integer telefono;
-
+    private String telefono;
+    
     @ManyToOne
-    @JoinColumn(name = "codigo_carrera", nullable = false)
+    @JoinColumn(name = "codigo", nullable = false)
     private Carrera carrera;
-
 
 }

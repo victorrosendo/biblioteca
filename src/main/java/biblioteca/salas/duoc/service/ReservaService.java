@@ -12,23 +12,23 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class ReservaService {
+
     @Autowired
     private ReservaRepository reservaRepository;
 
-    public List<Reserva> findAll() {
+    public List<Reserva> findAll(){
         return reservaRepository.findAll();
     }
 
-    public Reserva findById(Long id) {
+    public Reserva findById(Long id){
         return reservaRepository.findById(id).orElse(null);
     }
 
-    public Reserva save(Reserva reserva) {
+    public Reserva save(Reserva reserva){
         return reservaRepository.save(reserva);
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(Long id){
         reservaRepository.deleteById(id);
     }
-
 }

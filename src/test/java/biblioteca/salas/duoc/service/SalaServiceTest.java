@@ -1,36 +1,39 @@
 package biblioteca.salas.duoc.service;
-import static org.assertj.core.api.Assertions.assertThat; // Utilidades de aserción
-import static org.mockito.Mockito.when;                  // Define el comportamiento del mock
 
-import org.junit.jupiter.api.Test;                      // Indica un método de prueba
-import org.junit.jupiter.api.extension.ExtendWith;      // Permite usar Mockito
-import org.mockito.InjectMocks;                         // Inyecta los mocks
-import org.mockito.Mock;                                // Declara un mock
-import org.mockito.junit.jupiter.MockitoExtension;      // Extensión de Mockito para JUnit 5
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
-import biblioteca.salas.duoc.model.Sala;                // Modelo utilizado en la prueba
-import biblioteca.salas.duoc.model.TipoSala;            // Modelo relacionado
-import biblioteca.salas.duoc.repository.SalaRepository; // Repositorio simulado
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@ExtendWith(MockitoExtension.class) // Activa la extensión de Mockito
+import biblioteca.salas.duoc.model.Sala;
+import biblioteca.salas.duoc.model.TipoSala;
+import biblioteca.salas.duoc.repository.SalaRepository;
+
+@ExtendWith(MockitoExtension.class)
 public class SalaServiceTest {
-    @Mock                                     // Repositorio simulado
+    @Mock
     private SalaRepository repository;
 
-    @InjectMocks                               // Servicio a probar, con el mock inyectado
+    @InjectMocks
     private SalaService service;
 
-    @Test                                      // Marca el método como test
-    void save_returnsSavedSala() {
-        Sala nuevaSala = new Sala(             // Crea un objeto de ejemplo
-            10L, "Sala A", 50, 1,
-            new TipoSala(1L, "Estudio"));
-        when(repository.save(nuevaSala))       // Configura la respuesta del repositorio
-            .thenReturn(nuevaSala);
+    @Test
+    void save_returnsSavedSala(){
+        //creamos un objeto de prueba para el insert
+        Sala nuevaSala = new Sala(10L,"Sala 1",7,1,new TipoSala(1L,"Estudio"));
 
-        Sala result = service.save(nuevaSala); // Ejecuta el método de negocio
+        //configuramos la respuesta del repositorio
+        when(repository.save(nuevaSala)).thenReturn(nuevaSala);
 
-        assertThat(result).isSameAs(nuevaSala); // Comprueba que se devuelva el mismo objeto
+        //ejecutamos el metodo del servicio a comprobar
+        Sala result = service.save(nuevaSala);
+
+        //comprobamos que el servicio devuelva lo mismo que el repositorio
+        assertThat(result).isSameAs(nuevaSala); //el mismo objeto
     }
 
 }

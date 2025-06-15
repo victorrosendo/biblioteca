@@ -15,20 +15,21 @@ public class SalaService {
     @Autowired
     private SalaRepository salaRepository;
 
-    public List<Sala> findAll() {
+    public List<Sala> findAll(){
         return salaRepository.findAll();
     }
 
-    public Sala findById(Long id) {
+    public Sala findById(Long id){
         return salaRepository.findById(id).orElse(null);
     }
 
-    public Sala save(Sala sala) {
+    public Sala save(Sala sala){
         return salaRepository.save(sala);
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(Long id){
         salaRepository.deleteById(id);
     }
+
 
 }

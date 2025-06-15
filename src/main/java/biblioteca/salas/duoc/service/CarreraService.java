@@ -12,21 +12,23 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class CarreraService {
+
     @Autowired
     private CarreraRepository carreraRepository;
-    public List<Carrera> findAll() {
+
+    public List<Carrera> findAll(){
         return carreraRepository.findAll();
     }
 
-    public Carrera findByCodigo(String codigo) {
+    public Carrera findByCodigo(String codigo){
         return carreraRepository.findById(codigo).orElse(null);
     }
 
-    public Carrera save(Carrera carrera) {
+    public Carrera save(Carrera carrera){
         return carreraRepository.save(carrera);
     }
 
-    public void deleteByCodigo(String codigo) {
+    public void deleteByCodigo(String codigo){
         carreraRepository.deleteById(codigo);
     }
 }

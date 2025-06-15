@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "reserva")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class Reserva {
     @Id
     private Long id;
@@ -30,10 +30,10 @@ public class Reserva {
     private Integer estado;
 
     @ManyToOne
-    @JoinColumn(name = "id_estudiante", nullable = false)
+    @JoinColumn(name = "id", nullable = false)
     private Estudiante estudiante;
-
     @ManyToOne
-    @JoinColumn(name = "codigo_sala", nullable = false)
+    @JoinColumn(name = "codigo", nullable = false)
     private Sala sala;
+
 }

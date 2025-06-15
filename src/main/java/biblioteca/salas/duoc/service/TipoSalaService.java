@@ -15,19 +15,19 @@ public class TipoSalaService {
     @Autowired
     private TipoSalaRepository tipoSalaRepository;
 
-    public List<TipoSala> findAll() {
+    public List<TipoSala> findAll(){
         return tipoSalaRepository.findAll();
     }
 
-    public TipoSala findById(Long id) {
+    public TipoSala findById(Long id){
         return tipoSalaRepository.findById(id).orElse(null);
     }
 
-    public TipoSala save(TipoSala tipoSala) {
+    public TipoSala save(TipoSala tipoSala){
         return tipoSalaRepository.save(tipoSala);
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(Long id){
         tipoSalaRepository.deleteById(id);
     }
 

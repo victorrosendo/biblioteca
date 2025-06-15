@@ -18,4 +18,5 @@ public class Carrera {
     private String codigo;
     @Column(nullable = false)
     private String nombre;
+
 }

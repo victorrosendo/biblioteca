@@ -63,7 +63,6 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- JUnit Jupiter completo (API, Engine, Params) -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -79,14 +78,13 @@
 			<version>5.18.0</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
-
-	<dependency>
-    	<groupId>org.mockito</groupId>
-    	<artifactId>mockito-junit-jupiter</artifactId>
-    	<scope>test</scope>
-	</dependency>
 	
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>

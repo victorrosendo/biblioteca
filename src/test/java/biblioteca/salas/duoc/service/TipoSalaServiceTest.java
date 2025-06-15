@@ -1,47 +1,43 @@
 package biblioteca.salas.duoc.service;
 
-import static org.mockito.Mockito.when;
-
 import java.util.Arrays;
 import java.util.List;
-import static org.assertj.core.api.Assertions.assertThat; // Métodos de AssertJ para validaciones
-import org.junit.jupiter.api.Test;                     // Anotación para definir métodos de prueba
-import org.junit.jupiter.api.extension.ExtendWith;     // Permite extender el comportamiento de JUnit
-import org.mockito.InjectMocks;                        // Crea la instancia a probar e inyecta sus mocks
-import org.mockito.Mock;                               // Marca campos que serán simulados
-import org.mockito.junit.jupiter.MockitoExtension;     // Extensión para usar Mockito con JUnit 5
+
+import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.when;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import biblioteca.salas.duoc.model.TipoSala;
 import biblioteca.salas.duoc.repository.TipoSalaRepository;
 
-
-/*
- * se anotan las dependencias que se van a simular con @Mock, 
- * se inyecta el objeto a probar con @InjectMocks 
- * y se inicializa el contexto con @ExtendWith(MockitoExtension.class) 
- * o MockitoAnnotations.openMocks(this).
- */
-
-//se inicializa el contexto
-@ExtendWith(MockitoExtension.class)// Habilita la inicialización automática de los mocks
+@ExtendWith(MockitoExtension.class) //habilitar la inicialización automatica de los mocks
 public class TipoSalaServiceTest {
-    @Mock // Declaración del mock del repositorio
+    @Mock // declaro el mock para que se cree el repositorio fictisio
     private TipoSalaRepository repository;
 
-    @InjectMocks                             // Objeto bajo prueba con los mocks inyectados
+    @InjectMocks // objeto de prueba los mocks inyectados
     private TipoSalaService service;
 
-    @Test                                    // Método que ejecuta la prueba
-    void findAll_returnsListFromRepository() {
-        List<TipoSala> mockList =             // Lista que simula la respuesta del repositorio
-            Arrays.asList(new TipoSala(1L, "Auditorio"));
-        when(repository.findAll())            // Define el comportamiento del mock
-            .thenReturn(mockList);
+    @Test //identificamos que la funcion es un test o prueba unitaria
+    void findAll_returnsListFromRepository(){
+        //crear un elemento que simule la respuesta del repositorio
+        //lista simulada de la respuesta del repositorio
+        List<TipoSala> mockList = Arrays.asList(new TipoSala(1L,"Auditorio"));
 
-        List<TipoSala> result = service.findAll(); // Llama al método a probar
+        //definir el comportamiento del mock
+        when(repository.findAll()).thenReturn(mockList);
 
-        assertThat(result).isEqualTo(mockList);    // Verifica que se devuelva la lista esperada
+        //llamar al método que se pretende probar
+        List<TipoSala> result = service.findAll();
+
+        //verificar que coincida (validar sus criterios de aceptación)
+        assertThat(result).isEqualTo(mockList);
+
+
     }
-
 
 }
